@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>흘러가는 텍스트</title>
+    <style>
+        * {overflow:hidden; margin:0; padding:0; box-sizing:border-box;}
+        .wrap {position:relative; height:52px; margin-top:50px; border:3px solid #ff3131;}
+        .list {width:3650px;position:absolute; top:0;}
+        li {display:inline-block; font-size:34px; width:420px;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="list">
+            <li>반가워 ⁽⁽◝꒰ ˙ ꒳ ˙ ꒱◜⁾⁾ </li>
+            <li>반가워 ⁽⁽◝꒰ ˙ ꒳ ˙ ꒱◜⁾⁾ </li>
+            <li>반가워 ⁽⁽◝꒰ ˙ ꒳ ˙ ꒱◜⁾⁾ </li>
+            <li>반가워 ⁽⁽◝꒰ ˙ ꒳ ˙ ꒱◜⁾⁾ </li>
+            <li>반가워 ⁽⁽◝꒰ ˙ ꒳ ˙ ꒱◜⁾⁾ </li>
+            <li>반가워 ⁽⁽◝꒰ ˙ ꒳ ˙ ꒱◜⁾⁾ </li>
+            <li>반가워 ⁽⁽◝꒰ ˙ ꒳ ˙ ꒱◜⁾⁾ </li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        const wrap = document.querySelector('.wrap');
+        const ul = document.querySelector('.list');
+        const li = document.querySelectorAll('.list li');
+        const size = li[0].clientWidth;
+        var left = 0;
+        var trigger ='';
+
+
+        function move(){
+            if(Math.abs(left) >= size){
+                var lif = document.querySelector('.list li:first-child');
+                left = 0;
+                ul.appendChild(lif);
+            }
+            ul.style.left = left+'px';
+            left--;
+            console.log(left);
+        }
+        wrap.addEventListener('mouseleave', function(){
+            trigger= setInterval(move,40);
+        });
+        ul.addEventListener('mouseover', function(){
+            clearInterval(trigger);            
+        });
+    </script>
+</body>
+</html>
