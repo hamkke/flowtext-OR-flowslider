@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko-KR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>흘러가는 텍스트</title>
+    <title>hover하면 멈추는 flowSlider</title>
     <style>
         * {overflow:hidden; margin:0; padding:0; box-sizing:border-box;}
         .wrap {position:relative; height:150px; margin-top:50px;}
         .list {width:3650px;position:absolute; top:0; border:3px solid #ff3131;}
         li {display:inline-block; font-size:34px; width:420px;}
-        p {position:absolute; top:72px; left:10%; font-size:40px;}
     </style>
 </head>
 <body>
     <div class="wrap">
-        <p>안녕 슬라이더에 마우스를 올려봐</p>
         <ul class="list">
             <li>반가워 ⁽⁽◝꒰ ˙ ꒳ ˙ ꒱◜⁾⁾ </li>
             <li>반가워 ⁽⁽◝꒰ ˙ ꒳ ˙ ꒱◜⁾⁾ </li>
@@ -27,7 +25,6 @@
         </ul>
     </div>
     <script type="text/javascript">
-        const wrap = document.querySelector('.wrap');
         const ul = document.querySelector('.list');
         const li = document.querySelectorAll('.list li');
         const size = li[0].clientWidth;
@@ -43,9 +40,10 @@
             }
             ul.style.left = left+'px';
             left--;
-            console.log(left);
+            // console.log(left);s
         }
-        wrap.addEventListener('mouseleave', function(){
+        trigger= setInterval(move,40);
+        ul.addEventListener('mouseleave', function(){
             trigger= setInterval(move,40);
         });
         ul.addEventListener('mouseover', function(){
