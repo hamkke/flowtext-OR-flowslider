@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="ko-KR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>hover하면 멈추는 flowSlider</title>
+    <title>hover하면 멈추는 흐르는 슬라이더</title>
     <style>
         * {overflow:hidden; margin:0; padding:0; box-sizing:border-box;}
-        .wrap {position:relative; height:150px; margin-top:50px;}
-        .list {width:3650px;position:absolute; top:0; border:3px solid #ff3131;}
+        .wrap {position:relative; height:52px; margin-top:50px; border:3px solid #ff3131;}
+        .list {width:3650px;position:absolute; top:0;}
         li {display:inline-block; font-size:34px; width:420px;}
     </style>
 </head>
@@ -31,7 +31,6 @@
         var left = 0;
         var trigger ='';
 
-
         function move(){
             if(Math.abs(left) >= size){
                 var lif = document.querySelector('.list li:first-child');
@@ -42,12 +41,13 @@
             left--;
             // console.log(left);
         }
-        trigger= setInterval(move,40);
+        trigger = setInterval(move,40);
+
+        ul.addEventListener('mouseover', function(){
+            clearInterval(trigger);  
+        });
         ul.addEventListener('mouseleave', function(){
             trigger= setInterval(move,40);
-        });
-        ul.addEventListener('mouseover', function(){
-            clearInterval(trigger);            
         });
     </script>
 </body>
