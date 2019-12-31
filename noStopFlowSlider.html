@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko-KR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +8,12 @@
     <title>흘러가기만 하는 슬라이더</title>
     <style>
         * {margin:0; padding:0; box-sizing:border-box;}
-        .list {width:5000px; overflow:hidden;position:absolute;}
-        li {display:inline-block; font-size:40px; width:500px;}
+        .list {overflow:hidden; position:absolute; width:5000px;}
+        li {display:inline-block; width:500px; font-size:40px;}
     </style>
 </head>
 <body>
     <div class="wrap">
-
         <ul class="list">
             <li>안녕하세요1</li>
             <li>안녕하세요2</li>
@@ -22,9 +21,9 @@
             <li>안녕하세요4</li>
             <li>안녕하세요5</li>
             <li>안녕하세요6</li>
-        </ul>
-        
+        </ul>       
     </div>
+
     <script type="text/javascript">
         const ul = document.querySelector('.list');
         const li = document.querySelectorAll('.list li');
